@@ -1,0 +1,141 @@
+:root {
+    --accent: #639187;
+    --black: #141208;
+    --hover: #f1f5f9;
+    --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+    color: var(--black);
+    font-family: 'Work Sans', sans-serif;
+}
+
+/** utility **/
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.inner-container {
+    max-width: 67.5rem;
+    margin: auto;
+}
+
+/** type **/
+h1,
+h2 {
+    font-weight: 300;
+}
+
+h1, 
+li {
+    white-space: nowrap;
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+p,
+a {
+    font-size: 1.2rem;
+}
+
+/** navigation **/
+header {
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+header .inner-container {
+    padding: 0.5rem 1rem;
+}
+
+.toggle-btn {
+    background: transparent; /** or unset **/
+    border: none;
+    font-size: 0.825rem;
+}
+.toggle-btn svg {
+    display: block;
+    width: 2rem;
+}
+
+/** our header is 65px tall, so let's position the navigation roughly that far down below it **/
+nav {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    /** use percentages, not viewport width (vw) here. If you use 100vw, you'll get a horizontal overflow - because it counts as vertical scrollbar **/
+    width: 100%;
+    z-index: 10;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--hover);
+}
+
+/** style for default state **/
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in;
+}
+
+/** active/expanded menu **/
+.expanded {
+    max-height: 100vh;
+    opacity: 1;
+    visibility: visible; 
+}
+
+/** main **/
+main {
+    background: url(../img/hero-sm.webp) center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    /** we are subtracting the navbar/header height from the full height of the viewport so that everything fits perfectly **/
+    min-height: calc(100vh - 4rem);
+}
+
+.hero {
+    max-width: 40rem; /*640px*/
+}
+
+/** med view **/
+@media screen and (min-width: 720px) {
+    h2 {
+        font-size: 3.1875rem;
+    }
+    p {
+        font-size: 1.3125rem;
+    }
+    main {
+        background: url(../img/hero-lg.webp) center / cover no-repeat;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    
+}
