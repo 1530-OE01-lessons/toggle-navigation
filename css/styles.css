@@ -137,5 +137,35 @@ main {
 }
 
 @media screen and (min-width: 1080px) {
-    
+
+    /** first, lets hide the the toggle-btn **/
+    .toggle-btn {
+        display: none;
+    }
+
+    /**Next, regardless of whether the menu/nav is opened or closed, we need to make sure it's open/displayed */
+
+    nav.collapsed,
+    nav.expanded {
+        max-height: 100vh;
+        opacity: 1;
+        width: auto;
+        position: static;
+        visibility: visible;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    /** The hover styles that looked good in the smaller views don't look great on larger views. Let's change them **/
+    nav a:hover,
+    nav a:focus {
+        background-color: #A26427;
+        color: #d9eeec;
+        border-radius: 0.5rem;
+
+    }
 }
